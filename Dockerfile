@@ -37,4 +37,7 @@ RUN /setup.sh
 ADD start-postgis.sh /start-postgis.sh
 RUN chmod 0755 /start-postgis.sh
 
+# Fix postgres uid for mounted volumes..
+RUN usermod -u 1000 postgres
+
 CMD /start-postgis.sh
